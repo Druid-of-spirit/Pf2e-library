@@ -1,0 +1,492 @@
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital@0;1&family=Oswald:wght@200;400;700&display=swap');
+
+@import "null/null-style.scss";
+
+//Шаблоны
+$em-size: 1em;
+$bg-color: #E3A31E;
+$min-width: 160px;
+//Тело
+body {
+    background-color: #222426;
+    font-size: 20px;
+}
+
+//Текст
+p  {
+    font-family: 'Gentium Book Plus'; //Параметры обычного тектса
+    font-size: $em-size/1.25; //16px
+    color: white; 
+}
+h1 {
+    font-family: 'Gentium Book Plus'; //Параметры оглавлений выпадающего меню
+    font-size: $em-size;
+    font-weight: bold;
+    color: #2D0605;
+}
+h2 {
+    font-family: 'Gentium Book Plus'; //Параметры оглавлений выпадающих меню
+    font-size: $em-size/1.11; //18px
+    font-weight: normal;
+    color: #2D0605;
+}
+h3 {   
+    font-family: 'Gentium Book Plus'; //Заголовок перед текстом 
+    font-size: $em-size*1.2; //24px
+    font-weight: normal;
+    color: white;
+}
+h4 {
+    font-family: 'Oswald';
+    font-size: $em-size/0.83; //24px
+    font-weight: bold;
+    color: white;
+}
+span {
+    color: $bg-color;
+}
+::placeholder { //Задаёт стиль теста всем тэгам input
+    font-family: 'Gentium Book Plus'; //Заголовок перед текстом 
+    font-size: $em-size;
+    font-weight: normal;
+    color: white;
+}
+
+//ОСНОВА
+.wrapper {
+    min-height: 100%; //!!!Проверить на заполнаненной странице.
+    overflow: hidden; //При адаптация на телефоны, лечит баг с head и footer(полностью растягивает полосы и не срезает их)
+    
+}
+
+.container {
+    max-width: 1180px; //Ограничение пространства
+    margin: 0 auto; //Центрирование блоков
+}
+
+//ГОЛОВА
+.head {
+    background-color: $bg-color; //Размеры и цвет верхнего окна
+    box-shadow: 0px 4px 5px #E08F18;
+    max-height: 50px;
+}
+
+.head__row {
+    display: flex; //Выстраивание блоков по горизонтале
+}
+
+.head__logo {
+    margin: 0 0 0 2px;
+    padding: 5px 3px 0px 3px;
+    width: 54px; //Размер логотипа
+}
+
+.head__dropdown {
+    flex: 1 1 auto; //Расширение flex-элемента на всю длину container
+    padding: 0 0 0 40px;
+
+    
+}
+.menu {
+    
+    li {
+        position: relative; //Разрешение двигать блок относительно его положения
+        background-color: $bg-color;
+        padding: 8px 10px;
+        min-width: $min-width; //Расширяет верхнее drop меню до нижнего
+        
+    }
+    .menu__list {
+    display: flex; //Выстраивание блоков по горизонтале, выпадающий список
+    padding: 8px 0; //Внутренний отступ блока выпадающих списков
+    justify-content: space-evenly; //Равноудолённое растояние между блоками и границами
+    li {
+        border-radius: 5px 5px 0 0; //Скругляет верхние края выпадающего меню
+    }
+    
+    >:hover {
+        transition: background-color .5s, box-shadow .5s; //Анимация подсвечивания верхнего меню
+        background-color: #e3c21c;
+
+    }
+    >:hover {
+        box-shadow: 4px 2px 6px #E08F18, -4px 2px 6px #E08F18;
+        .sub-menu__list {
+            visibility: visible; //При наведение разворачивает выпадающий список
+            opacity: 1; //Постепенное появление выпадающего меню
+        }
+    }
+        .sub-menu__list {
+            visibility: hidden; //Скрывание меню 
+            opacity: 0; //Постепенное появление выпадающего меню
+            transition: visibility .2s, opacity 0.2s linear; //Анимация появления меню
+            position: absolute; //Позиционирование выпадающего меню относительно родителя
+            top: 36px;
+            left: 0;
+            border-radius: 0 0 5px 5px;
+            min-width: $min-width; //Минимальный размер выпадающего блока меню
+            background-color: $bg-color;
+            li {
+                margin: 0 0 3px 0;
+            }
+            >:hover {
+                transition: background-color .5s, box-shadow .5s; //Анимация подсвечивания меню
+                background-color: hsl(50, 78%, 50%);
+                box-shadow: 0 3px #E08F18;
+            }
+            /*li:nth-child(1){
+                z-index: 4; //Выдвигает по оси z блок меню для того что бы тень от блока была видна на следющем блоке. Найти способ делать это через JS!!!
+            }
+            li:nth-child(2){
+                z-index: 3;
+            }
+            li:nth-child(3){
+                z-index: 2;
+            }
+            li:nth-child(4){
+                z-index: 1;
+            }*/
+            :last-child {
+                box-shadow: none; //Убирает у последнего блока меню тень и отступ снизу
+                margin: 0 0;
+                border-radius: 0 0 5px 5px; //Скругляет нижние края выпадающего меню
+            }
+            .sub-menu__divider {
+                border: #2D0605 solid 1px; //Разделительная линия для меню
+                margin: 9px 0; //Нельзя давать отступ слева и справа иначе при присвоение menu__list значение width, divider его расширит
+                padding: 0 0;
+            }
+        }
+    }
+}
+
+.head__search {
+    padding: 13px 3px 0 0;
+    .head__input {
+        padding: 0 0 0 5px;
+        width: 140px;
+        height: 25px;
+        border-radius: 5px;
+        background-color: #222426;
+        border: #2D0605 solid 2px;
+        color: white; //Перекрашивает вводимый текст
+    }
+    :focus {
+        border: 2px solid #e3c21c; //Подсветка при введение текста
+    }
+}
+//ТАБЛИЦЫ
+
+//Шаблоны
+$table-width-name: 30%;
+$table-width-level: 5%;
+$table-width-cast: 15%;
+$table-width-traditions: 15%;
+$table-width-school: 15%;
+%divide-line {
+    border-bottom: $bg-color solid 2px;
+}
+%text-sett {
+    margin: 0 0 3px 0;
+    overflow-wrap: break-word;
+    font-size: 0.8em;
+    line-height: 1.1em;
+    span {
+        font-size: 1.2em;
+    }
+}
+
+
+
+button {
+    font-size: 0.7em;
+}
+
+.table {
+    padding: 40px 0 0 0;
+}
+.table__tables {
+    display: flex;
+}
+.table__select {
+    flex-direction: column;
+    flex: 1 0 60%;
+    //Изменения scroll
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        background: black;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #E08F18;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #e3c21c;
+    }
+}
+
+//Фильтр и поиск
+
+.table__settings {
+    display: flex;
+    flex: 1 0 auto;
+    :hover {
+        background-color: hsl(200, 6%, 18%); //Подсветка кнопки-меню
+    }
+
+}
+.table__filter {
+    padding: 4px 6px;
+    background-color: #222426;
+    border-left: $bg-color solid 2px;
+    border-top: $bg-color solid 2px;
+    border-radius: 5px 0 0 0;
+    color: white;
+    
+}
+.table__search {
+    flex: 1 1 auto;
+    margin: 0 10px 0 0;
+    background-color: #222426;
+    border-left: $bg-color solid 2px;
+    border-top: $bg-color solid 2px;
+    border-right: $bg-color solid 2px;
+    border-radius: 0 5px 0 0;
+    color: white;
+    font-size: 0.7em;
+    padding: 0 0 0 3px;
+    
+}
+
+//Наимнования
+
+.table__titles {
+    margin: 0 10px 0 0;
+    display: flex;
+    :first-child {
+        border-left: $bg-color solid 2px;
+    }
+    :hover {
+        background-color: hsl(200, 6%, 18%); //Подсветка кнопки-меню
+    }
+    button {
+        background-color: #222426;
+        color: white;
+        border-top: $bg-color solid 2px;
+        border-bottom: $bg-color solid 2px;
+        border-right: $bg-color solid 2px;
+        padding: 3px;
+        
+    }
+}
+.table__title_name {
+    flex: 1 0 $table-width-name;
+}
+.table__title_level {
+    flex: 1 0 $table-width-level;
+}
+.table__title_cast {
+    flex: 1 0 $table-width-cast;
+}
+.table__title_traditions {
+    flex: 1 0 $table-width-traditions;
+}
+.table__title_school {
+    flex: 1 0 $table-width-school;
+}
+.table__title_source {
+    display: none;
+}
+
+//Список
+
+.table__list {
+    
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    overflow: auto;
+    
+}
+.table__string {
+    @extend %divide-line;
+    flex: 1 0 auto;
+    span {
+        font-size: 0.7em;
+    }
+    .table__link:hover {
+        background-color: hsl(200, 6%, 18%); //Подсветка кнопки-меню
+    }
+}
+.table__link {
+    display: flex;
+    
+    :first-child {
+        text-align: left;
+    }
+    span {
+        line-height: 1.5em;
+        text-align: center;
+        color: white;
+    }
+}
+.table__text_name {
+    flex: 1 0 $table-width-name;
+}
+.table__text_level {
+    flex: 1 0 $table-width-level;
+}
+.table__text_cast {
+    flex: 1 0 $table-width-cast;
+}
+.table__text_traditions {
+    flex: 1 0 $table-width-traditions;
+}
+.table__text_school {
+    flex: 1 0 $table-width-school;
+}
+.table__text_source {
+    display: none;
+}
+
+//Описание
+
+
+
+.table__content {
+    margin: -5px 0 0 10px;
+}
+.conten__title {
+    display: flex;
+    justify-content: space-between;
+    @extend %divide-line;
+    font-size: 1.65em;
+    
+}
+.content__trait {
+    margin: 5px 0;
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 5px 5px;
+    :hover {
+        background-color: hsl(8, 80%, 20%);
+    }
+    span {
+        background-color: #2D0605;
+        border: $bg-color solid 2px;
+        font-size: 0.9em;
+        padding: 5px;
+    }
+
+}
+/*.content__text {
+}*/
+.content__traditions {
+    margin: 0 0 3px 0;
+    color: $bg-color ;
+    
+    .content__traditions_a {
+        color: gold;
+    }
+    .content__traditions_a:hover { //Обязательно писать так или в css ставится пробел!!!!!!
+    text-decoration: underline white 2px;
+    }
+    
+
+}
+.content__cast {
+    margin: 0 0 3px 0;
+}
+.content__requirements {
+    margin: 0 0 3px 0;
+}
+.content__range {
+    margin: 0 0 3px 0;
+    
+}
+.content__area {
+    margin: 0 0 3px 0;
+    
+}
+.content__duration{
+    margin: 0 0 5px 0;
+    padding: 0 0 3px 0;
+    @extend %divide-line;
+}
+
+.content__description {
+    @extend %text-sett;
+}
+.content__crit-suc {
+    @extend %text-sett;
+    
+}
+.content__suc {
+    @extend %text-sett;
+}
+.content__fail {
+    @extend %text-sett;
+}
+.content__crit-fail {
+    @extend %text-sett;
+    padding: 0 0 3px 0;
+    @extend %divide-line;
+}
+.content__heightened_3 {
+    @extend %text-sett;
+}
+.content__heightened_5 {
+    @extend %text-sett;
+}
+.content__heightened_7 {
+    @extend %text-sett;
+}
+.content__heightened_9 {
+    @extend %text-sett;
+}
+
+
+//АДАПТАЦИЯ
+
+@media (max-width: 1024px) {
+    .table__tables {
+        flex-direction: column;
+    }
+    .table__select {
+        margin: 0 0 20px 0 ;
+    }
+    .table__content {
+        margin: 0px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .head__dropdown {
+        display: none;
+    }
+    .head__search {
+        margin: 0 auto;
+        padding: 10px 0 0 0;
+        input {
+            min-width: 280px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .head__search {
+        margin: 0 auto;
+        padding: 10px 0 0 0;
+        input {
+            min-width: 200px;
+        }
+    }
+    .table__link {
+        word-break: break-all;
+    }
+    .table__titles {
+        word-break: break-all;
+    }
+}

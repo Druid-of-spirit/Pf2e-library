@@ -1,0 +1,526 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital@0;1&family=Oswald:wght@200;400;700&display=swap"); /*Обнуление стилей*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*******************************/
+body {
+  background-color: #222426;
+  font-size: 20px;
+}
+
+p {
+  font-family: "Gentium Book Plus";
+  font-size: 0.8em;
+  color: white;
+}
+
+h1 {
+  font-family: "Gentium Book Plus";
+  font-size: 1em;
+  font-weight: bold;
+  color: #2D0605;
+}
+
+h2 {
+  font-family: "Gentium Book Plus";
+  font-size: 0.9009009009em;
+  font-weight: normal;
+  color: #2D0605;
+}
+
+h3 {
+  font-family: "Gentium Book Plus";
+  font-size: 1.2em;
+  font-weight: normal;
+  color: white;
+}
+
+h4 {
+  font-family: "Oswald";
+  font-size: 1.2048192771em;
+  font-weight: bold;
+  color: white;
+}
+
+span {
+  color: #E3A31E;
+}
+
+::-moz-placeholder {
+  font-family: "Gentium Book Plus";
+  font-size: 1em;
+  font-weight: normal;
+  color: white;
+}
+
+:-ms-input-placeholder {
+  font-family: "Gentium Book Plus";
+  font-size: 1em;
+  font-weight: normal;
+  color: white;
+}
+
+::placeholder {
+  font-family: "Gentium Book Plus";
+  font-size: 1em;
+  font-weight: normal;
+  color: white;
+}
+
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.head {
+  background-color: #E3A31E;
+  box-shadow: 0px 4px 5px #E08F18;
+  max-height: 50px;
+}
+
+.head__row {
+  display: flex;
+}
+
+.head__logo {
+  margin: 0 0 0 2px;
+  padding: 5px 3px 0px 3px;
+  width: 54px;
+}
+
+.head__dropdown {
+  flex: 1 1 auto;
+  padding: 0 0 0 40px;
+}
+
+.menu li {
+  position: relative;
+  background-color: #E3A31E;
+  padding: 8px 10px;
+  min-width: 160px;
+}
+.menu .menu__list {
+  display: flex;
+  padding: 8px 0;
+  justify-content: space-evenly;
+}
+.menu .menu__list li {
+  border-radius: 5px 5px 0 0;
+}
+.menu .menu__list > :hover {
+  transition: background-color 0.5s, box-shadow 0.5s;
+  background-color: #e3c21c;
+}
+.menu .menu__list > :hover {
+  box-shadow: 4px 2px 6px #E08F18, -4px 2px 6px #E08F18;
+}
+.menu .menu__list > :hover .sub-menu__list {
+  visibility: visible;
+  opacity: 1;
+}
+.menu .menu__list .sub-menu__list {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.2s, opacity 0.2s linear;
+  position: absolute;
+  top: 36px;
+  left: 0;
+  border-radius: 0 0 5px 5px;
+  min-width: 160px;
+  background-color: #E3A31E;
+  /*li:nth-child(1){
+      z-index: 4; //Выдвигает по оси z блок меню для того что бы тень от блока была видна на следющем блоке. Найти способ делать это через JS!!!
+  }
+  li:nth-child(2){
+      z-index: 3;
+  }
+  li:nth-child(3){
+      z-index: 2;
+  }
+  li:nth-child(4){
+      z-index: 1;
+  }*/
+}
+.menu .menu__list .sub-menu__list li {
+  margin: 0 0 3px 0;
+}
+.menu .menu__list .sub-menu__list > :hover {
+  transition: background-color 0.5s, box-shadow 0.5s;
+  background-color: hsl(50deg, 78%, 50%);
+  box-shadow: 0 3px #E08F18;
+}
+.menu .menu__list .sub-menu__list :last-child {
+  box-shadow: none;
+  margin: 0 0;
+  border-radius: 0 0 5px 5px;
+}
+.menu .menu__list .sub-menu__list .sub-menu__divider {
+  border: #2D0605 solid 1px;
+  margin: 9px 0;
+  padding: 0 0;
+}
+
+.head__search {
+  padding: 13px 3px 0 0;
+}
+.head__search .head__input {
+  padding: 0 0 0 5px;
+  width: 140px;
+  height: 25px;
+  border-radius: 5px;
+  background-color: #222426;
+  border: #2D0605 solid 2px;
+  color: white;
+}
+.head__search :focus {
+  border: 2px solid #e3c21c;
+}
+
+.content__crit-fail, .content__duration, .conten__title, .table__string {
+  border-bottom: #E3A31E solid 2px;
+}
+
+.content__heightened_9, .content__heightened_7, .content__heightened_5, .content__heightened_3, .content__crit-fail, .content__fail, .content__suc, .content__crit-suc, .content__description {
+  margin: 0 0 3px 0;
+  overflow-wrap: break-word;
+  font-size: 0.8em;
+  line-height: 1.1em;
+}
+.content__heightened_9 span, .content__heightened_7 span, .content__heightened_5 span, .content__heightened_3 span, .content__crit-fail span, .content__fail span, .content__suc span, .content__crit-suc span, .content__description span {
+  font-size: 1.2em;
+}
+
+button {
+  font-size: 0.7em;
+}
+
+.table {
+  padding: 40px 0 0 0;
+}
+
+.table__tables {
+  display: flex;
+}
+
+.table__select {
+  flex-direction: column;
+  flex: 1 0 60%;
+}
+.table__select ::-webkit-scrollbar {
+  width: 10px;
+}
+.table__select ::-webkit-scrollbar-track {
+  background: black;
+}
+.table__select ::-webkit-scrollbar-thumb {
+  background: #E08F18;
+}
+.table__select ::-webkit-scrollbar-thumb:hover {
+  background: #e3c21c;
+}
+
+.table__settings {
+  display: flex;
+  flex: 1 0 auto;
+}
+.table__settings :hover {
+  background-color: hsl(200deg, 6%, 18%);
+}
+
+.table__filter {
+  padding: 4px 6px;
+  background-color: #222426;
+  border-left: #E3A31E solid 2px;
+  border-top: #E3A31E solid 2px;
+  border-radius: 5px 0 0 0;
+  color: white;
+}
+
+.table__search {
+  flex: 1 1 auto;
+  margin: 0 10px 0 0;
+  background-color: #222426;
+  border-left: #E3A31E solid 2px;
+  border-top: #E3A31E solid 2px;
+  border-right: #E3A31E solid 2px;
+  border-radius: 0 5px 0 0;
+  color: white;
+  font-size: 0.7em;
+  padding: 0 0 0 3px;
+}
+
+.table__titles {
+  margin: 0 10px 0 0;
+  display: flex;
+}
+.table__titles :first-child {
+  border-left: #E3A31E solid 2px;
+}
+.table__titles :hover {
+  background-color: hsl(200deg, 6%, 18%);
+}
+.table__titles button {
+  background-color: #222426;
+  color: white;
+  border-top: #E3A31E solid 2px;
+  border-bottom: #E3A31E solid 2px;
+  border-right: #E3A31E solid 2px;
+  padding: 3px;
+}
+
+.table__title_name {
+  flex: 1 0 30%;
+}
+
+.table__title_level {
+  flex: 1 0 5%;
+}
+
+.table__title_cast {
+  flex: 1 0 15%;
+}
+
+.table__title_traditions {
+  flex: 1 0 15%;
+}
+
+.table__title_school {
+  flex: 1 0 15%;
+}
+
+.table__title_source {
+  display: none;
+}
+
+.table__list {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  overflow: auto;
+}
+
+.table__string {
+  flex: 1 0 auto;
+}
+.table__string span {
+  font-size: 0.7em;
+}
+.table__string .table__link:hover {
+  background-color: hsl(200deg, 6%, 18%);
+}
+
+.table__link {
+  display: flex;
+}
+.table__link :first-child {
+  text-align: left;
+}
+.table__link span {
+  line-height: 1.5em;
+  text-align: center;
+  color: white;
+}
+
+.table__text_name {
+  flex: 1 0 30%;
+}
+
+.table__text_level {
+  flex: 1 0 5%;
+}
+
+.table__text_cast {
+  flex: 1 0 15%;
+}
+
+.table__text_traditions {
+  flex: 1 0 15%;
+}
+
+.table__text_school {
+  flex: 1 0 15%;
+}
+
+.table__text_source {
+  display: none;
+}
+
+.table__content {
+  margin: -5px 0 0 10px;
+}
+
+.conten__title {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.65em;
+}
+
+.content__trait {
+  margin: 5px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 5px;
+}
+.content__trait :hover {
+  background-color: hsl(8deg, 80%, 20%);
+}
+.content__trait span {
+  background-color: #2D0605;
+  border: #E3A31E solid 2px;
+  font-size: 0.9em;
+  padding: 5px;
+}
+
+/*.content__text {
+}*/
+.content__traditions {
+  margin: 0 0 3px 0;
+  color: #E3A31E;
+}
+.content__traditions .content__traditions_a {
+  color: gold;
+}
+.content__traditions .content__traditions_a:hover {
+  -webkit-text-decoration: underline white 2px;
+          text-decoration: underline white 2px;
+}
+
+.content__cast {
+  margin: 0 0 3px 0;
+}
+
+.content__requirements {
+  margin: 0 0 3px 0;
+}
+
+.content__range {
+  margin: 0 0 3px 0;
+}
+
+.content__area {
+  margin: 0 0 3px 0;
+}
+
+.content__duration {
+  margin: 0 0 5px 0;
+  padding: 0 0 3px 0;
+}
+
+.content__crit-fail {
+  padding: 0 0 3px 0;
+}
+
+@media (max-width: 1024px) {
+  .table__tables {
+    flex-direction: column;
+  }
+  .table__select {
+    margin: 0 0 20px 0;
+  }
+  .table__content {
+    margin: 0px;
+  }
+}
+@media (max-width: 768px) {
+  .head__dropdown {
+    display: none;
+  }
+  .head__search {
+    margin: 0 auto;
+    padding: 10px 0 0 0;
+  }
+  .head__search input {
+    min-width: 280px;
+  }
+}
+@media (max-width: 480px) {
+  .head__search {
+    margin: 0 auto;
+    padding: 10px 0 0 0;
+  }
+  .head__search input {
+    min-width: 200px;
+  }
+  .table__link {
+    word-break: break-all;
+  }
+  .table__titles {
+    word-break: break-all;
+  }
+}/*# sourceMappingURL=pattern-60-40.css.map */
