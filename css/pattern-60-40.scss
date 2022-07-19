@@ -17,6 +17,7 @@ p  {
     font-family: 'Gentium Book Plus'; //Параметры обычного тектса
     font-size: $em-size/1.25; //16px
     color: white; 
+    
 }
 h1 {
     font-family: 'Gentium Book Plus'; //Параметры оглавлений выпадающего меню
@@ -45,6 +46,7 @@ h4 {
 span {
     color: $bg-color;
 }
+
 ::placeholder { //Задаёт стиль теста всем тэгам input
     font-family: 'Gentium Book Plus'; //Заголовок перед текстом 
     font-size: $em-size;
@@ -198,6 +200,7 @@ $table-width-school: 15%;
 
 
 
+
 button {
     font-size: 0.7em;
 }
@@ -211,12 +214,12 @@ button {
 .table__select {
     flex-direction: column;
     flex: 1 0 60%;
-    //Изменения scroll
+    //Оформление scroll для всех браузеров, кроме firefox
     ::-webkit-scrollbar {
         width: 10px;
     }
     ::-webkit-scrollbar-track {
-        background: black;
+        background: #222426;
     }
     ::-webkit-scrollbar-thumb {
         background: #E08F18;
@@ -224,6 +227,8 @@ button {
     ::-webkit-scrollbar-thumb:hover {
         background: #e3c21c;
     }
+    
+    
 }
 
 //Фильтр и поиск
@@ -302,11 +307,12 @@ button {
 //Список
 
 .table__list {
-    
     display: flex;
     flex-direction: column;
     height: 300px;
-    overflow: auto;
+    overflow: auto; //Scroll и оформление для Firefox
+    scrollbar-width: thin;
+    scrollbar-color: #E08F18 #222426;
     
 }
 .table__string {
@@ -322,11 +328,13 @@ button {
 .table__link {
     display: flex;
     
+    
     :first-child {
         text-align: left;
     }
     span {
         line-height: 1.5em;
+        letter-spacing: 0.5px;
         text-align: center;
         color: white;
     }
@@ -365,14 +373,17 @@ button {
     
 }
 .content__trait {
-    margin: 5px 0;
+    margin: 6px 0;
     display: flex;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     gap: 5px 5px;
+    /*.content__link {
+    }*/
     :hover {
         background-color: hsl(8, 80%, 20%);
     }
     span {
+        display: inline-block;
         background-color: #2D0605;
         border: $bg-color solid 2px;
         font-size: 0.9em;
@@ -386,10 +397,10 @@ button {
     margin: 0 0 3px 0;
     color: $bg-color ;
     
-    .content__traditions_a {
+    .content__traditions_link {
         color: gold;
     }
-    .content__traditions_a:hover { //Обязательно писать так или в css ставится пробел!!!!!!
+    .content__traditions_link:hover { //Обязательно писать так или в css ставится пробел!!!!!!
     text-decoration: underline white 2px;
     }
     
@@ -409,10 +420,20 @@ button {
     margin: 0 0 3px 0;
     
 }
+.content__target {
+    margin: 0 0 3px 0;
+}
+.content__saving {
+    margin: 0 0 3px 0;
+}
 .content__duration{
     margin: 0 0 5px 0;
-    padding: 0 0 3px 0;
+    padding: 0 0 5px 0;
     @extend %divide-line;
+    img {
+        width: 30px;
+        height: 25px;
+    }
 }
 
 .content__description {
@@ -433,18 +454,10 @@ button {
     padding: 0 0 3px 0;
     @extend %divide-line;
 }
-.content__heightened_3 {
+.content__heightened {
     @extend %text-sett;
 }
-.content__heightened_5 {
-    @extend %text-sett;
-}
-.content__heightened_7 {
-    @extend %text-sett;
-}
-.content__heightened_9 {
-    @extend %text-sett;
-}
+
 
 
 //АДАПТАЦИЯ

@@ -256,13 +256,13 @@ span {
   border-bottom: #E3A31E solid 2px;
 }
 
-.content__heightened_9, .content__heightened_7, .content__heightened_5, .content__heightened_3, .content__crit-fail, .content__fail, .content__suc, .content__crit-suc, .content__description {
+.content__heightened, .content__crit-fail, .content__fail, .content__suc, .content__crit-suc, .content__description {
   margin: 0 0 3px 0;
   overflow-wrap: break-word;
   font-size: 0.8em;
   line-height: 1.1em;
 }
-.content__heightened_9 span, .content__heightened_7 span, .content__heightened_5 span, .content__heightened_3 span, .content__crit-fail span, .content__fail span, .content__suc span, .content__crit-suc span, .content__description span {
+.content__heightened span, .content__crit-fail span, .content__fail span, .content__suc span, .content__crit-suc span, .content__description span {
   font-size: 1.2em;
 }
 
@@ -286,7 +286,7 @@ button {
   width: 10px;
 }
 .table__select ::-webkit-scrollbar-track {
-  background: black;
+  background: #222426;
 }
 .table__select ::-webkit-scrollbar-thumb {
   background: #E08F18;
@@ -373,6 +373,8 @@ button {
   flex-direction: column;
   height: 300px;
   overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #E08F18 #222426;
 }
 
 .table__string {
@@ -433,15 +435,18 @@ button {
 }
 
 .content__trait {
-  margin: 5px 0;
+  margin: 6px 0;
   display: flex;
   flex-wrap: wrap;
   gap: 5px 5px;
+  /*.content__link {
+  }*/
 }
 .content__trait :hover {
   background-color: hsl(8deg, 80%, 20%);
 }
 .content__trait span {
+  display: inline-block;
   background-color: #2D0605;
   border: #E3A31E solid 2px;
   font-size: 0.9em;
@@ -454,10 +459,10 @@ button {
   margin: 0 0 3px 0;
   color: #E3A31E;
 }
-.content__traditions .content__traditions_a {
+.content__traditions .content__traditions_link {
   color: gold;
 }
-.content__traditions .content__traditions_a:hover {
+.content__traditions .content__traditions_link:hover {
   -webkit-text-decoration: underline white 2px;
           text-decoration: underline white 2px;
 }
@@ -478,9 +483,21 @@ button {
   margin: 0 0 3px 0;
 }
 
+.content__target {
+  margin: 0 0 3px 0;
+}
+
+.content__saving {
+  margin: 0 0 3px 0;
+}
+
 .content__duration {
   margin: 0 0 5px 0;
-  padding: 0 0 3px 0;
+  padding: 0 0 5px 0;
+}
+.content__duration img {
+  width: 30px;
+  height: 25px;
 }
 
 .content__crit-fail {
