@@ -1,0 +1,100 @@
+{
+    "spells": [
+        {
+            "Name": "Имя",
+            "Level": "Уровень",
+
+            "Spell or focus or cantrip":{
+                "spell": "Заклинания", 
+                "focus": "Заклинания фокусировки", 
+                "cantrip": "Чары"
+            },
+
+            "traits": "Особенности (теги)",
+
+            "Traditions or bloodline or domain or empty": {
+                "Traditions": {
+                    "arcane":"Мистическая", 
+                    "occult":"Окультная", 
+                    "primal":"Первобытная", 
+                    "divine":"Сакральная"
+                },
+                "bloodline": "Наследственность",
+                "domain": "Домен",
+                "empty" : ""
+            }, 
+
+            "Abjuration or conjuration or divination or enchantment or evocation or illusion or necromancy or transmutation": {
+                "School": "Школа",
+                "abjuration": "Преграждения",
+                "conjuration": "Воплощения",
+                "divination": "Прорицания",
+                "enchantment": "Очарования",
+                "evocation": "Эвокации",
+                "illusion": "Иллюзии",
+                "necromancy": "Некромантии",
+                "transmutation": "Превращения"
+            },
+            
+            "Action or two-action or three-action or reaction or free-action or varies or 1-minute or 10-minute or 1-hour":{
+                "Cast": "Время применения",
+                "action": "Действие",
+                "two-action": "Два действия",
+                "three-action": "Три действия",
+                "reaction": "Реакция",
+                "free-action": "Свободное действие",
+                "varies": "На выбор",
+                "1-minute": "1 минута",
+                "10-minite": "10 минут",
+                "1-hour": "1 час"
+            },
+
+            "Somatic or/and verbal or/and material":{
+                "somatic": "Жестовый",
+                "verbal": "Словесный",
+                "material": "Реагент"
+            },
+
+            "Requirements or empty": {
+                "requirements" : "Требования",
+                "empty" : ""
+            },
+            
+            "Range or area or empty": {
+                "range": "Дистанция",
+                "area": "Зона",
+                "empty" : ""
+            },
+            
+            "Targets or target or empty": {
+                "targets": "Цели",
+                "target": "Цель",
+                "empty" : ""
+            },
+
+            "Fortitude or reflex or will or empty" :{
+                "Saving-Throw": "Спас-бросок",
+                "basic": "Базовый",
+                "fortitude": "Стойкость", 
+                "reflex": "Реакция", 
+                "will": "Воля",
+                "empty" : ""
+            },
+            
+            "Duration or empty": {
+                "duration": "Продолжительность",
+                "empty" : ""
+            },
+
+            "Description": {
+                "Text": "Описание",
+                "Critical Success or empty": "Крит успех",
+                "Success or empty": "Успех",
+				"Failure or empty": "Провал",
+				"Critical Failure or empty": "Крит провал",
+                "Heightened or empty": "Повышение"
+            } 
+            
+        }
+    ] 
+}
