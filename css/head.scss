@@ -38,11 +38,6 @@
 	font-style: normal;
 }
 
-
-
-
-
-
 @import "null/null-style.scss";
 
 //Шаблоны
@@ -65,8 +60,9 @@ p  {
     
 }
 h1 {
+    
     font-family: 'GentiumBookPlus-Regular'; //Параметры оглавлений выпадающего меню
-    font-size: $em-size;
+    font-size:  $em-size;
     font-weight: bold;
     color: #2D0605;
 }
@@ -87,6 +83,7 @@ h4 {
     font-size: $em-size*1.4; //28px
     color: white;
 }
+
 span {
     color: $bg-color;
 }
@@ -98,6 +95,7 @@ span {
     color: white;
 }
 
+//test html
 
 .one {
     font-family: 'GentiumBookPlus-Regular';
@@ -114,6 +112,8 @@ span {
 .five {
     font-family: 'Oswald-Bold';
 }
+
+
 //ОСНОВА
 .wrapper {
     min-height: 100%; //!!!Проверить на заполнаненной странице.
