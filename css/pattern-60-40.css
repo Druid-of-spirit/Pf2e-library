@@ -108,8 +108,7 @@ h3 {
 
 h4 {
   font-family: "Oswald";
-  font-size: 1.2048192771em;
-  font-weight: bold;
+  font-size: 1.4em;
   color: white;
 }
 
@@ -162,6 +161,7 @@ span {
   margin: 0 0 0 2px;
   padding: 5px 3px 0px 3px;
   width: 54px;
+  min-width: 54px;
 }
 
 .head__dropdown {
@@ -252,15 +252,16 @@ span {
   border: 2px solid #e3c21c;
 }
 
-.content__crit-fail, .content__duration, .conten__title, .table__string {
-  border-bottom: #E3A31E solid 2px;
+.dividing__line {
+  margin: 5px 0;
+  border-top: #E3A31E solid 2px;
 }
 
 .content__heightened, .content__crit-fail, .content__fail, .content__suc, .content__crit-suc, .content__description {
   margin: 0 0 3px 0;
   overflow-wrap: break-word;
   font-size: 0.8em;
-  line-height: 1.1em;
+  line-height: 1.3em;
 }
 .content__heightened span, .content__crit-fail span, .content__fail span, .content__suc span, .content__crit-suc span, .content__description span {
   font-size: 1.2em;
@@ -387,8 +388,13 @@ button {
   background-color: hsl(200deg, 6%, 18%);
 }
 
+.table__string.active {
+  background-color: hsl(200deg, 6%, 20%);
+}
+
 .table__link {
   display: flex;
+  border-bottom: #E3A31E solid 2px;
 }
 .table__link :first-child {
   text-align: left;
@@ -398,6 +404,9 @@ button {
   letter-spacing: 0.5px;
   text-align: center;
   color: white;
+}
+.table__link span:first-child::first-letter {
+  text-transform: uppercase;
 }
 
 .table__text_name {
@@ -431,7 +440,6 @@ button {
 .conten__title {
   display: flex;
   justify-content: space-between;
-  font-size: 1.65em;
 }
 
 .content__trait {
@@ -495,9 +503,9 @@ button {
   margin: 0 0 5px 0;
   padding: 0 0 5px 0;
 }
-.content__duration img {
-  width: 30px;
-  height: 25px;
+
+.content__description {
+  text-indent: 3em;
 }
 
 .content__crit-fail {

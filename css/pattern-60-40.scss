@@ -3,206 +3,27 @@
 @import "null/null-style.scss";
 
 //Шаблоны
-$em-size: 1em;
-$bg-color: #E3A31E;
-$min-width: 160px;
-//Тело
-body {
-    background-color: #222426;
-    font-size: 20px;
-}
-
-//Текст
-p  {
-    font-family: 'Gentium Book Plus'; //Параметры обычного тектса
-    font-size: $em-size/1.25; //16px
-    color: white; 
-    
-}
-h1 {
-    font-family: 'Gentium Book Plus'; //Параметры оглавлений выпадающего меню
-    font-size: $em-size;
-    font-weight: bold;
-    color: #2D0605;
-}
-h2 {
-    font-family: 'Gentium Book Plus'; //Параметры оглавлений выпадающих меню
-    font-size: $em-size/1.11; //18px
-    font-weight: normal;
-    color: #2D0605;
-}
-h3 {   
-    font-family: 'Gentium Book Plus'; //Заголовок перед текстом 
-    font-size: $em-size*1.2; //24px
-    font-weight: normal;
-    color: white;
-}
-h4 {
-    font-family: 'Oswald';
-    font-size: $em-size/0.83; //24px
-    font-weight: bold;
-    color: white;
-}
-span {
-    color: $bg-color;
-}
-
-::placeholder { //Задаёт стиль теста всем тэгам input
-    font-family: 'Gentium Book Plus'; //Заголовок перед текстом 
-    font-size: $em-size;
-    font-weight: normal;
-    color: white;
-}
-
-//ОСНОВА
-.wrapper {
-    min-height: 100%; //!!!Проверить на заполнаненной странице.
-    overflow: hidden; //При адаптация на телефоны, лечит баг с head и footer(полностью растягивает полосы и не срезает их)
-    
-}
-
-.container {
-    max-width: 1180px; //Ограничение пространства
-    margin: 0 auto; //Центрирование блоков
-}
-
-//ГОЛОВА
-.head {
-    background-color: $bg-color; //Размеры и цвет верхнего окна
-    box-shadow: 0px 4px 5px #E08F18;
-    max-height: 50px;
-}
-
-.head__row {
-    display: flex; //Выстраивание блоков по горизонтале
-}
-
-.head__logo {
-    margin: 0 0 0 2px;
-    padding: 5px 3px 0px 3px;
-    width: 54px; //Размер логотипа
-}
-
-.head__dropdown {
-    flex: 1 1 auto; //Расширение flex-элемента на всю длину container
-    padding: 0 0 0 40px;
-
-    
-}
-.menu {
-    
-    li {
-        position: relative; //Разрешение двигать блок относительно его положения
-        background-color: $bg-color;
-        padding: 8px 10px;
-        min-width: $min-width; //Расширяет верхнее drop меню до нижнего
-        
-    }
-    .menu__list {
-    display: flex; //Выстраивание блоков по горизонтале, выпадающий список
-    padding: 8px 0; //Внутренний отступ блока выпадающих списков
-    justify-content: space-evenly; //Равноудолённое растояние между блоками и границами
-    li {
-        border-radius: 5px 5px 0 0; //Скругляет верхние края выпадающего меню
-    }
-    
-    >:hover {
-        transition: background-color .5s, box-shadow .5s; //Анимация подсвечивания верхнего меню
-        background-color: #e3c21c;
-
-    }
-    >:hover {
-        box-shadow: 4px 2px 6px #E08F18, -4px 2px 6px #E08F18;
-        .sub-menu__list {
-            visibility: visible; //При наведение разворачивает выпадающий список
-            opacity: 1; //Постепенное появление выпадающего меню
-        }
-    }
-        .sub-menu__list {
-            visibility: hidden; //Скрывание меню 
-            opacity: 0; //Постепенное появление выпадающего меню
-            transition: visibility .2s, opacity 0.2s linear; //Анимация появления меню
-            position: absolute; //Позиционирование выпадающего меню относительно родителя
-            top: 36px;
-            left: 0;
-            border-radius: 0 0 5px 5px;
-            min-width: $min-width; //Минимальный размер выпадающего блока меню
-            background-color: $bg-color;
-            li {
-                margin: 0 0 3px 0;
-            }
-            >:hover {
-                transition: background-color .5s, box-shadow .5s; //Анимация подсвечивания меню
-                background-color: hsl(50, 78%, 50%);
-                box-shadow: 0 3px #E08F18;
-            }
-            /*li:nth-child(1){
-                z-index: 4; //Выдвигает по оси z блок меню для того что бы тень от блока была видна на следющем блоке. Найти способ делать это через JS!!!
-            }
-            li:nth-child(2){
-                z-index: 3;
-            }
-            li:nth-child(3){
-                z-index: 2;
-            }
-            li:nth-child(4){
-                z-index: 1;
-            }*/
-            :last-child {
-                box-shadow: none; //Убирает у последнего блока меню тень и отступ снизу
-                margin: 0 0;
-                border-radius: 0 0 5px 5px; //Скругляет нижние края выпадающего меню
-            }
-            .sub-menu__divider {
-                border: #2D0605 solid 1px; //Разделительная линия для меню
-                margin: 9px 0; //Нельзя давать отступ слева и справа иначе при присвоение menu__list значение width, divider его расширит
-                padding: 0 0;
-            }
-        }
-    }
-}
-
-.head__search {
-    padding: 13px 3px 0 0;
-    .head__input {
-        padding: 0 0 0 5px;
-        width: 140px;
-        height: 25px;
-        border-radius: 5px;
-        background-color: #222426;
-        border: #2D0605 solid 2px;
-        color: white; //Перекрашивает вводимый текст
-    }
-    :focus {
-        border: 2px solid #e3c21c; //Подсветка при введение текста
-    }
-}
-//ТАБЛИЦЫ
-
-//Шаблоны
 $table-width-name: 30%;
 $table-width-level: 5%;
 $table-width-cast: 15%;
 $table-width-traditions: 15%;
 $table-width-school: 15%;
-%divide-line {
-    border-bottom: $bg-color solid 2px;
-}
+
 %text-sett {
     margin: 0 0 3px 0;
     overflow-wrap: break-word;
     font-size: 0.8em;
-    line-height: 1.1em;
+    line-height: 1.3em;
     span {
         font-size: 1.2em;
     }
 }
 
+//ТАБЛИЦЫ
 
-
-
-button {
-    font-size: 0.7em;
+.dividing__line {
+        margin: 5px 0; //Разделительная линия между блоками и тестом
+        border-top: $bg-color solid 2px;
 }
 
 .table {
@@ -316,7 +137,7 @@ button {
     
 }
 .table__string {
-    @extend %divide-line;
+    
     flex: 1 0 auto;
     span {
         font-size: 0.7em;
@@ -324,10 +145,15 @@ button {
     .table__link:hover {
         background-color: hsl(200, 6%, 18%); //Подсветка кнопки-меню
     }
+    
+}
+.table__string.active {
+            background-color: hsl(200, 6%, 20%);
+    
 }
 .table__link {
     display: flex;
-    
+    border-bottom: $bg-color solid 2px;
     
     :first-child {
         text-align: left;
@@ -337,6 +163,10 @@ button {
         letter-spacing: 0.5px;
         text-align: center;
         color: white;
+        
+    }
+    span:first-child::first-letter {
+        text-transform: uppercase;
     }
 }
 .table__text_name {
@@ -368,8 +198,9 @@ button {
 .conten__title {
     display: flex;
     justify-content: space-between;
-    @extend %divide-line;
-    font-size: 1.65em;
+    
+    
+    
     
 }
 .content__trait {
@@ -429,15 +260,12 @@ button {
 .content__duration{
     margin: 0 0 5px 0;
     padding: 0 0 5px 0;
-    @extend %divide-line;
-    img {
-        width: 30px;
-        height: 25px;
-    }
+    
 }
 
 .content__description {
     @extend %text-sett;
+    text-indent: 3em;
 }
 .content__crit-suc {
     @extend %text-sett;
@@ -452,7 +280,7 @@ button {
 .content__crit-fail {
     @extend %text-sett;
     padding: 0 0 3px 0;
-    @extend %divide-line;
+    
 }
 .content__heightened {
     @extend %text-sett;
@@ -476,16 +304,8 @@ button {
 }
 
 @media (max-width: 768px) {
-    .head__dropdown {
-        display: none;
-    }
-    .head__search {
-        margin: 0 auto;
-        padding: 10px 0 0 0;
-        input {
-            min-width: 280px;
-        }
-    }
+    
+    
 }
 
 @media (max-width: 480px) {
